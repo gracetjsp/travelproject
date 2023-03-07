@@ -1,0 +1,56 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css'%}">
+    <link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css'%}" rel="stylesheet" type="text/css">
+    <title>Document</title>
+</head>
+
+<body
+    style="background: linear-gradient(to bottom right, #33ccff 0%, #ccffcc 100%);background-repeat: no-repeat;height: 100vh;">
+    <div class="container">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-12 col-md-4 text-center pt-5 p-3  ">
+                <div class="card p-3 rounded-0 border-dark ">
+                    <h2>Register</h2>
+                    <form action="register" method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <input type="text" name="username" placeholder="username" class="form-control rounded-0">
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" name="first_name" placeholder="Enter your first name" class="form-control rounded-0">
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" name="last_name" placeholder="Enter your last name" class="form-control rounded-0">
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" name="email" placeholder="Enter your email address" class="form-control rounded-0">
+                        </div>
+                        <div class="mb-3">
+                            <input type="password" name="password" placeholder="Enter your password" class="form-control rounded-0">
+                        </div>
+                        <div class="mb-3">
+                            <input type="password" name="password1" placeholder="Confirm your password" class="form-control rounded-0">
+                        </div>
+                        <div class="mb-3">
+                            <input type="submit" class="rounded-0">
+                        </div>
+                    </form>
+                    {% for i in messages %}
+                    <h3>{{i}}</h3>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-4"></div>
+        </div>
+    </div>
+</body>
+
+</html>
